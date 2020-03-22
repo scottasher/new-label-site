@@ -22,6 +22,7 @@ function Articles(props) {
     useEffect(() => {
         props.fetchArticles();
     }, []);
+    
     return (
         <div>
             <Row gutter={[8, 8]}>

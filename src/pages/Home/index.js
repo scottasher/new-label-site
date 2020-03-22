@@ -21,7 +21,7 @@ function Home(props) {
             console.log(obj.image)        
             return {
                 id: obj.id,
-                image: JSON.parse(obj.image).path ,
+                image: obj.image.path,
                 link: `/articles/${obj.id}`,
                 name: obj.title,
             }

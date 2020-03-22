@@ -8,7 +8,7 @@ export const fetchArticles = () => async dispatch => {
     const res = await request('/articles', {
         method: 'get',
     });
-
+    console.log(res)
     dispatch({ type: FETCH_ARTICLES, payload: res.data });
 };
 

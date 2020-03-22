@@ -29,15 +29,13 @@ class CarouselHome extends Component {
   }
 
   renderAds(data) {
+    console.log(data)
     return data.map(ad => {
       let img = ad.image;
-      if(typeof(ad.image) === 'string') {
-        img = JSON.parse(ad.image)
-      }
       return (
         <div key={ad.id}>
           <Link to={ad.link}>
-            <img className='responsive' src={`${ROOT_URL}${img.path}`} alt={img.name} />
+            <img className='responsive' src={`${ROOT_URL}${img}`} alt={ad.name} />
           </Link>
         </div>
       )
@@ -59,6 +57,7 @@ class CarouselHome extends Component {
 
     const { data } = this.props;
     const { arrowsVisible } = this.state;
+    console.log(this.props)
     return (
       <div className='carousel-container'>
         <Carousel ref={node => (this.carousel = node)} {...defaultProps}>
