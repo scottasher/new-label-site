@@ -29,13 +29,11 @@ class CarouselHome extends Component {
   }
 
   renderAds(data) {
-    console.log(data)
-    return data.map(ad => {
-      let img = ad.image;
+    return data.map(obj => {
       return (
-        <div key={ad.id}>
-          <Link to={ad.link}>
-            <img className='responsive' src={`${ROOT_URL}${img}`} alt={ad.name} />
+        <div key={obj.id}>
+          <Link to={obj.link}>
+            <img className='responsive' src={obj.image} alt={obj.image} />
           </Link>
         </div>
       )

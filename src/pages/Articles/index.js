@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 function renderArticles(posts) {
     return posts.map(post => {
         return (
-            <Col xs={24} sm={12}>  
+            <Col xs={24} sm={12} md={8} >  
                 <Link to={`/articles/${post.id}`}>       
                     <ArticleCard article={post} />
                 </Link>
