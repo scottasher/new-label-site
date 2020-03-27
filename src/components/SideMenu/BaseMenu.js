@@ -8,7 +8,7 @@ const { SubMenu } = Menu;
 function BaseMenu(props) {
     // console.log('BASE MENU', props)
     const renderMenuItems = (data) => {
-        return data.map(i => {
+        return data.filter(obj => obj.title).map(i => {
             if (!i.routes) {
                 return (
                     <Menu.Item key={i.path}>

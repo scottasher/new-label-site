@@ -4,12 +4,12 @@ import { Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchArticles } from '../../actions/articles';
-import { useDispatch, useSelector } from "react-redux";
+import './index.less';
 
 function renderArticles(posts) {
-    return posts.map(post => {
+    return posts.map((post, index) => {
         return (
-            <Col xs={24} sm={12} md={8} >  
+            <Col key={index} xs={24} sm={12} md={6} >  
                 <Link to={`/articles/${post.id}`}>       
                     <ArticleCard article={post} />
                 </Link>

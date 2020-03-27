@@ -3,21 +3,18 @@ import { Layout } from 'antd';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import MainHeader from '../../components/MainHeader';
 import SideMenu from '../../components/SideMenu';
+import MainFooter from '../../components/Footer';
 import { connect } from 'react-redux';
 import { sideCollapse } from '../../actions/utils';
 import { ContainerQuery } from 'react-container-query';
 import classnames from 'classnames';
-import { format } from 'date-fns';
 import menu from '../../config/main.routes';
-import { getMenuMap } from '../../utils'
+import { getMenuMap } from '../../utils';
 import './index.less';
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const siderMenuData = getMenuMap(menu);
-const date = format(
-    new Date(),
-    'yyyy'
-);
+
 const query = {
     'screen-xs': {
         maxWidth: 575,
@@ -53,6 +50,7 @@ function MainLayout(props) {
         <Layout className="layout">
             <div className='sider-view'>
                 <SideMenu
+                    theme="light"
                     menuData={siderMenuData}
                     onCollapse={handleMenuCollapse}
                     collapsed={props.collapsed}
@@ -68,7 +66,7 @@ function MainLayout(props) {
                     <Breadcrumbs />
                     <div className="site-layout-content">{props.children}</div>
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>New Site ©{date}</Footer>
+                <MainFooter {...props} />
             </Layout>
         </Layout>
     );

@@ -2,11 +2,23 @@ import React, { useState, useEffect } from 'react';
 import Carousel from '../../components/Carousel';
 import { fetchArticles } from '../../actions/articles';
 import { connect } from 'react-redux';  
+import ArticleCard from '../../components/ArticleCard';
+import { Row, Col } from 'antd';
+import { Link } from 'react-router-dom';
+
+function renderArticles(posts) {
+    return posts.map((post, index) => {
+        return (
+            <Col key={index} xs={24} sm={12} md={8} >  
+                <Link to={`/articles/${post.id}`}>       
+                    <ArticleCard article={post} />
+                </Link>
+            </Col>
+        )
+    })
+}
 
 function Home(props) {
-    const [articleCarousel, setArticleCarousel] = useState([]); 
-    const [loading, setLoading] = useState(true);
-
     useEffect(() => {
         props.fetchArticles()
     }, []);
@@ -31,6 +43,9 @@ function Home(props) {
     return (
         <div>
             <Carousel data={renderCarousel(props.articles)} /> 
+            <Row gutter={[8, 8]}>
+                {renderArticles(props.articles)}
+            </Row>
         </div>
     )
 }

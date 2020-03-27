@@ -3,6 +3,7 @@ import Articles from '../pages/Articles';
 import Show from '../pages/Articles/Show'
 import About from '../pages/About';
 import Contact from '../pages/Contact';
+import NoMatch from '../pages/NoMatch';
 
 export default [
     {
@@ -27,14 +28,20 @@ export default [
         key: 3,
         path: '/articles/:id',
         name: 'article',
-        icon: 'article',
-        title: 'sidebar.article.main',
         defaultMessage: 'Article',
         component: Show,
         menuRemove: true
     },
     {
         key: 4,
+        path: 'https://shop.melodiousdin.com',
+        name: 'article',
+        defaultMessage: 'Article',
+        component: Show,
+        menuRemove: true
+    },
+    {
+        key: 5,
         path: '/about',
         name: 'about',
         icon: 'about',
@@ -43,12 +50,19 @@ export default [
         component: About
     },
     {
-        key: 5,
+        key: 6,
         path: '/contact',
         name: 'contact',
         icon: 'contact',
         title: 'sidebar.contact.main',
         defaultMessage: 'Contact',
         component: Contact
+    },
+    {
+        key: 7,
+        path: '*',
+        name: '404',
+        defaultMessage: '404',
+        component: NoMatch
     },
 ]

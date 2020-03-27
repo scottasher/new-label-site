@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
 import routes from '../../config/main.routes';
+import path from 'path';
 
 const breadcrumbNameMap = routes.filter(r => {
     if(r.path === '/') {
@@ -26,6 +27,13 @@ const Breadcrumbs = withRouter(props => {
     const pathSnippets = location.pathname.split('/').filter(i => i);
     const extraBreadcrumbItems = pathSnippets.map((_, index) => {
         const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+        if(!isNaN(path.basename(url))) {
+            return (
+                <Breadcrumb.Item key={url}>
+                    <Link to={url} style={{ display: 'contents', textTransform: 'capitalize' }}>{_}</Link>
+                </Breadcrumb.Item>
+            );
+        }
         return (
             <Breadcrumb.Item key={url}>
                 <Link to={url}>{breadcrumbNameMap[url]}</Link>
