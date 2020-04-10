@@ -20,7 +20,7 @@ function renderArticles(posts) {
 
 function Home(props) {
     useEffect(() => {
-        props.fetchArticles()
+        setTimeout(() => props.fetchArticles(), 100)
     }, []);
 
     function renderCarousel(data) {
@@ -30,7 +30,7 @@ function Home(props) {
             }
             return true
         }).map(obj => {    
-            console.log(obj.image)        
+            // console.log(obj.image)        
             return {
                 id: obj.id,
                 image: obj.image.path,

@@ -55,7 +55,7 @@ class CarouselHome extends Component {
 
     const { data } = this.props;
     const { arrowsVisible } = this.state;
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div className='carousel-container'>
         <Carousel ref={node => (this.carousel = node)} {...defaultProps}>

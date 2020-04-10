@@ -12,7 +12,7 @@ function Show(props) {
             props.fetchArticle(props.match.params.id, props.history)
         }
     },[props.match.params.id])
-    console.log(props)
+    // console.log(props)
     if(props.loading) {
         return <Spin />
     }

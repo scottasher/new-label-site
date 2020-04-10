@@ -9,10 +9,10 @@ import {
 export const fetchArticles = () => async dispatch => {
     dispatch({ type: FETCH_LOADING, payload: true });
 
-    const res = await request('/articles?status=[public, draft, private]', {
+    const res = await request('/articles?status=public', {
         method: 'get',
     });
-    console.log(res)
+    // console.log(res)
     dispatch({ type: FETCH_ARTICLES, payload: res.data });
     dispatch({ type: FETCH_LOADING, payload: false });
 };

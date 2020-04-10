@@ -21,9 +21,9 @@ const employeeMap = [
 function MainFooter(props) {
     useEffect(() => {
         if(!props.articles) {
-            props.fetchLatestArticles()
+            setTimeout(() => props.fetchLatestArticles(), 100)
         }
-    }, [])
+    }, [props.articles])
 
     return (
         <Footer style={{ color: '#fff', backgroundColor: '#131313', padding: '24px 20px' }}>

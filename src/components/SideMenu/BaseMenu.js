@@ -14,12 +14,7 @@ function BaseMenu(props) {
                     <Menu.Item key={i.path}>
                         <Link
                             to={i.path}
-                            onClick={
-                            props.isMobile ? () => {
-                                    props.onCollapse(true);
-                                }
-                                : undefined
-                            }
+                            onClick={() => props.onCollapse(false)}
                         >
                             {/* <Icon type={i.icon} /> */}
                             <span>{i.defaultMessage}</span>
@@ -42,13 +37,7 @@ function BaseMenu(props) {
                                 <Menu.Item key={r.path}>
                                     <Link
                                         to={r.path}
-                                        onClick={
-                                            props.isMobile
-                                            ? () => {
-                                                props.onCollapse(true);
-                                                }
-                                            : undefined
-                                        }
+                                        onClick={() => props.onCollapse(false)}
                                     >{r.defaultMessage}</Link>
                                 </Menu.Item>
                             )
