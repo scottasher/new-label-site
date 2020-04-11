@@ -23,7 +23,7 @@ export function createAlert(values, history) {
 
 
   if(history) {
-    console.log('[HISTORY]', history, values)
+    // console.log('[HISTORY]', history, values)
     history.push(values.redirect)
   }
 }
