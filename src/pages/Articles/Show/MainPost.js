@@ -1,10 +1,23 @@
 import React from 'react';
 import { Typography, Skeleton } from 'antd';
+import { convertFromRaw, EditorState } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg'
 import parse from 'html-react-parser';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title } = Typography;
 
 export default function MainPost(props) {
+    let body;
+    if(!props.article.body) {
+        body = EditorState.createEmpty()
+    } else {
+        if(props.article.body.blocks) {
+            body = EditorState.createWithContent(
+                convertFromRaw(props.article.body)
+            ) ;
+        }
+    }
+    console.log(body)
     if(!props.article.image) {
         return <Skeleton active />
     }
@@ -23,7 +36,7 @@ export default function MainPost(props) {
                 <span style={{ float: 'right', fontStyle: 'italic' }}>Image credits</span>
             </div>
             <div className="article-body">
-                {parse(props.article.body || '<p>Loading...</p>')}
+                <Editor editorClassName="body-editor" toolbarHidden editorState={body} readOnly={true} />
             </div>
         </Typography>
     )

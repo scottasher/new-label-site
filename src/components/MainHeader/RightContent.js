@@ -1,11 +1,14 @@
 import React from 'react';
-import { Tooltip } from 'antd';
+import { Tooltip, Button } from 'antd';
 import { InstagramOutlined, QuestionCircleOutlined, ShoppingCartOutlined  } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export default function(props) {
     return (
         <div className='right'>
+            <div style={{ display: 'inline-block' }}>
+                <Button onClick={() => <Redirect to="/members/login" />}>Member Login</Button>
+            </div>
             <Tooltip title='Help'>
                 <Link
                     to="/contact"
